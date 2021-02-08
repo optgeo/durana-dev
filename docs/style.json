@@ -1,0 +1,295 @@
+{
+  "layers": [
+    {
+      "id": "relief",
+      "maxzoom": 9,
+      "minzoom": 0,
+      "paint": {
+        "raster-opacity": [
+          "interpolate",
+          [
+            "linear"
+          ],
+          [
+            "zoom"
+          ],
+          6,
+          1,
+          9,
+          0
+        ]
+      },
+      "source": "relief",
+      "type": "raster"
+    },
+    {
+      "id": "LandCoverUnit",
+      "paint": {
+        "fill-color": [
+          "match",
+          [
+            "get",
+            "LandCoverClass"
+          ],
+          "132DumpSites",
+          [
+            "rgb",
+            166,
+            77,
+            0
+          ],
+          "133ConstructionSites",
+          [
+            "rgb",
+            219,
+            148,
+            0
+          ],
+          "141GreenUrbanAreas",
+          [
+            "rgb",
+            121,
+            149,
+            64
+          ],
+          "142SportAndLeisureFacilities",
+          [
+            "rgb",
+            94,
+            244,
+            155
+          ],
+          "212PermanentlyIrrigatedLand",
+          [
+            "rgb",
+            245,
+            247,
+            240
+          ],
+          "213RiceFields",
+          [
+            "rgb",
+            245,
+            244,
+            208
+          ],
+          "221Vineyards",
+          [
+            "rgb",
+            234,
+            247,
+            225
+          ],
+          "222FruitTreesAndBerryPlantations",
+          [
+            "rgb",
+            230,
+            245,
+            240
+          ],
+          "223OliveGroves",
+          [
+            "rgb",
+            198,
+            224,
+            199
+          ],
+          "231Pastures",
+          [
+            "rgb",
+            234,
+            251,
+            221
+          ],
+          "241AnnualCropsAssociatedWith+PermanentCrops",
+          [
+            "rgb",
+            244,
+            251,
+            239
+          ],
+          "311Broad-leavedForest",
+          [
+            "rgb",
+            220,
+            237,
+            219
+          ],
+          "312ConiferousForest",
+          [
+            "rgb",
+            229,
+            244,
+            216
+          ],
+          "313MixedForest",
+          [
+            "rgb",
+            218,
+            242,
+            231
+          ],
+          "321NaturalGrasslands",
+          [
+            "rgb",
+            223,
+            244,
+            226
+          ],
+          "331BeachesDuneSands",
+          [
+            "rgb",
+            172,
+            86,
+            0
+          ],
+          "334BurntAreas",
+          [
+            "rgb",
+            150,
+            56,
+            0
+          ],
+          "422Salines",
+          [
+            "rgb",
+            0,
+            176,
+            240
+          ],
+          "523SeaAndOcean",
+          [
+            "rgb",
+            30,
+            144,
+            255
+          ],
+          [
+            "rgba",
+            63,
+            63,
+            63,
+            0.4
+          ]
+        ],
+        "fill-opacity": 0.3
+      },
+      "source": "v",
+      "source-layer": "LandCoverUnit",
+      "type": "fill"
+    },
+    {
+      "id": "LandWaterBoundary",
+      "paint": {
+        "line-color": [
+          "rgb",
+          200,
+          160,
+          60
+        ]
+      },
+      "source": "v",
+      "source-layer": "LandWaterBoundary",
+      "type": "line"
+    },
+    {
+      "id": "AdministrativeBoundary",
+      "paint": {
+        "line-color": [
+          "rgb",
+          200,
+          160,
+          60
+        ]
+      },
+      "source": "v",
+      "source-layer": "AdministrativeBoundary",
+      "type": "line"
+    },
+    {
+      "id": "ContourLine",
+      "paint": {
+        "line-color": [
+          "rgb",
+          200,
+          160,
+          60
+        ]
+      },
+      "source": "v",
+      "source-layer": "ContourLine",
+      "type": "line"
+    },
+    {
+      "id": "AsigAreaTransportFeature",
+      "paint": {
+        "fill-color": [
+          "rgb",
+          96,
+          125,
+          139
+        ]
+      },
+      "source": "v",
+      "source-layer": "AsigAreaTransportFeature",
+      "type": "fill"
+    },
+    {
+      "id": "Building",
+      "paint": {
+        "fill-extrusion-color": [
+          "rgb",
+          222,
+          215,
+          215
+        ],
+        "fill-extrusion-height": 3.66,
+        "fill-extrusion-opacity": 0.7
+      },
+      "source": "v",
+      "source-layer": "Building",
+      "type": "fill-extrusion"
+    },
+    {
+      "id": "NamedPlace",
+      "paint": {
+        "circle-color": [
+          "rgb",
+          96,
+          125,
+          139
+        ],
+        "circle-radius": 2.5
+      },
+      "source": "v",
+      "source-layer": "NamedPlace",
+      "type": "circle"
+    }
+  ],
+  "site_root": "https://optgeo.github.io/durana-dev",
+  "sources": {
+    "relief": {
+      "maxzoom": 5,
+      "minzoom": 0,
+      "tileSize": 512,
+      "tiles": [
+        "https://optgeo.github.io/relief/zxy/{z}/{x}/{y}.png"
+      ],
+      "type": "raster"
+    },
+    "v": {
+      "attribution": "TODO",
+      "maxzoom": 15,
+      "tiles": [
+        "https://optgeo.github.io/durana-dev/zxy/{z}/{x}/{y}.pbf"
+      ],
+      "type": "vector"
+    }
+  },
+  "version": 8,
+  "zoom": 8,
+  "center": [
+    19.877014,
+    41.345887
+  ]
+}
