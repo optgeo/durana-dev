@@ -1,5 +1,18 @@
 {
+  "glyphs": "mapbox://fonts/mapbox/{fontstack}/{range}.pbf",
   "layers": [
+    {
+      "id": "background",
+      "paint": {
+        "background-color": [
+          "rgb",
+          255,
+          255,
+          255
+        ]
+      },
+      "type": "background"
+    },
     {
       "id": "relief",
       "maxzoom": 9,
@@ -157,7 +170,11 @@
             176,
             240
           ],
-          "523SeaAndOcean",
+          [
+            "511WaterCourses",
+            "512WaterBodies",
+            "523SeaAndOcean"
+          ],
           [
             "rgb",
             30,
@@ -169,13 +186,55 @@
             63,
             63,
             63,
-            0.4
+            0
           ]
         ],
         "fill-opacity": 0.3
       },
       "source": "v",
       "source-layer": "LandCoverUnit",
+      "type": "fill"
+    },
+    {
+      "id": "Wetland",
+      "paint": {
+        "fill-color": [
+          "rgb",
+          135,
+          206,
+          235
+        ]
+      },
+      "source": "v",
+      "source-layer": "Wetland",
+      "type": "fill"
+    },
+    {
+      "id": "WatercourseA",
+      "paint": {
+        "fill-color": [
+          "rgb",
+          0,
+          175,
+          240
+        ]
+      },
+      "source": "v",
+      "source-layer": "WatercourseA",
+      "type": "fill"
+    },
+    {
+      "id": "StandingwaterA",
+      "paint": {
+        "fill-color": [
+          "rgb",
+          200,
+          235,
+          250
+        ]
+      },
+      "source": "v",
+      "source-layer": "StandingwaterA",
       "type": "fill"
     },
     {
@@ -196,10 +255,49 @@
       "id": "AdministrativeBoundary",
       "paint": {
         "line-color": [
-          "rgb",
-          200,
-          160,
-          60
+          "match",
+          [
+            "get",
+            "AdministrativeHierarchyLevel"
+          ],
+          "6thOrder(Boundary of Special Area)",
+          [
+            "rgb",
+            0,
+            170,
+            90
+          ],
+          [
+            "rgb",
+            127,
+            127,
+            127
+          ]
+        ],
+        "line-width": [
+          "match",
+          [
+            "get",
+            "AdministrativeHierachyLevel"
+          ],
+          [
+            "1stOrder(National Boundary)"
+          ],
+          5,
+          [
+            "2ndOrder(Administrative Boundary)"
+          ],
+          4,
+          [
+            "3rdOrder(Municiparity Boundary)"
+          ],
+          3,
+          [
+            "4thOrder(Administrative Unit Border)",
+            "5thOrder(County or City Boundary)"
+          ],
+          2,
+          1
         ]
       },
       "source": "v",
@@ -214,6 +312,24 @@
           200,
           160,
           60
+        ],
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          0.8,
+          15,
+          [
+            "match",
+            [
+              "get",
+              "ContourLineTypeValue"
+            ],
+            "master(5m)",
+            2,
+            1
+          ]
         ]
       },
       "source": "v",
@@ -221,13 +337,177 @@
       "type": "line"
     },
     {
-      "id": "AsigAreaTransportFeature",
+      "id": "AerodromeArea",
+      "paint": {
+        "fill-color": [
+          "rgba",
+          0,
+          255,
+          255,
+          0.2
+        ],
+        "fill-outline-color": [
+          "rgb",
+          89,
+          89,
+          89
+        ]
+      },
+      "source": "v",
+      "source-layer": "AerodromeArea",
+      "type": "fill"
+    },
+    {
+      "id": "ApronArea",
       "paint": {
         "fill-color": [
           "rgb",
-          96,
-          125,
-          139
+          239,
+          195,
+          230
+        ]
+      },
+      "source": "v",
+      "source-layer": "ApronArea",
+      "type": "fill"
+    },
+    {
+      "id": "RunwayArea",
+      "paint": {
+        "fill-color": [
+          "rgb",
+          209,
+          163,
+          222
+        ]
+      },
+      "source": "v",
+      "source-layer": "RunwayArea",
+      "type": "fill"
+    },
+    {
+      "id": "TaxiwayArea",
+      "paint": {
+        "fill-color": [
+          "rgb",
+          230,
+          195,
+          230
+        ]
+      },
+      "source": "v",
+      "source-layer": "TaxiwayArea",
+      "type": "fill"
+    },
+    {
+      "id": "RailwayArea",
+      "paint": {
+        "fill-color": [
+          "rgb",
+          205,
+          133,
+          64
+        ],
+        "fill-outline-color": [
+          "rgb",
+          0,
+          0,
+          0
+        ]
+      },
+      "source": "v",
+      "source-layer": "RailwayArea",
+      "type": "fill"
+    },
+    {
+      "id": "RailwayYardArea",
+      "paint": {
+        "fill-color": [
+          "rgb",
+          205,
+          133,
+          63
+        ],
+        "fill-outline-color": [
+          "rgb",
+          0,
+          0,
+          0
+        ]
+      },
+      "source": "v",
+      "source-layer": "RailwayYardArea",
+      "type": "fill"
+    },
+    {
+      "id": "RailwayStationArea",
+      "paint": {
+        "fill-color": [
+          "rgb",
+          169,
+          169,
+          169
+        ],
+        "fill-outline-color": [
+          "rgb",
+          0,
+          0,
+          0
+        ]
+      },
+      "source": "v",
+      "source-layer": "RailwayStationArea",
+      "type": "fill"
+    },
+    {
+      "id": "RoadArea",
+      "paint": {
+        "fill-color": [
+          "rgb",
+          242,
+          242,
+          242
+        ],
+        "fill-outline-color": [
+          "rgb",
+          104,
+          104,
+          104
+        ]
+      },
+      "source": "v",
+      "source-layer": "RoadArea",
+      "type": "fill"
+    },
+    {
+      "id": "AsigAreaTransportFeature",
+      "paint": {
+        "fill-color": [
+          "rgba",
+          0,
+          0,
+          0,
+          0
+        ],
+        "fill-outline-color": [
+          "match",
+          [
+            "get",
+            "AsigAreaTransportFeatureTypeValue"
+          ],
+          "stairs",
+          [
+            "rgb",
+            130,
+            130,
+            130
+          ],
+          [
+            "rgb",
+            0,
+            0,
+            0
+          ]
         ]
       },
       "source": "v",
@@ -235,15 +515,71 @@
       "type": "fill"
     },
     {
+      "id": "RailwayLink",
+      "paint": {
+        "line-color": [
+          "rgb",
+          96,
+          125,
+          139
+        ]
+      },
+      "source": "v",
+      "source-layer": "RailwayLink",
+      "type": "line"
+    },
+    {
       "id": "Building",
       "paint": {
         "fill-extrusion-color": [
-          "rgb",
-          222,
-          215,
-          215
+          "match",
+          [
+            "get",
+            "Building"
+          ],
+          "building",
+          [
+            "rgb",
+            200,
+            200,
+            200
+          ],
+          "governmentalBuilding",
+          [
+            "rgb",
+            213,
+            199,
+            170
+          ],
+          "educationalBuilding",
+          [
+            "rgb",
+            222,
+            217,
+            240
+          ],
+          "serviceBuilding",
+          [
+            "rgb",
+            238,
+            227,
+            174
+          ],
+          "religiousBuilding",
+          [
+            "rgb",
+            243,
+            223,
+            208
+          ],
+          [
+            "rgb",
+            222,
+            215,
+            215
+          ]
         ],
-        "fill-extrusion-height": 3.66,
+        "fill-extrusion-height": 7,
         "fill-extrusion-opacity": 0.7
       },
       "source": "v",
@@ -251,19 +587,141 @@
       "type": "fill-extrusion"
     },
     {
-      "id": "NamedPlace",
+      "id": "BuildingPart",
       "paint": {
-        "circle-color": [
-          "rgb",
-          96,
-          125,
-          139
+        "fill-extrusion-color": [
+          "match",
+          [
+            "get",
+            "BuildingPart"
+          ],
+          "buildingPart",
+          [
+            "rgb",
+            200,
+            200,
+            200
+          ],
+          "governmentalBuildingPart",
+          [
+            "rgb",
+            213,
+            199,
+            170
+          ],
+          "educationalBuildingPart",
+          [
+            "rgb",
+            222,
+            217,
+            240
+          ],
+          "serviceBuildingPart",
+          [
+            "rgb",
+            238,
+            227,
+            174
+          ],
+          "religiousBuildingPart",
+          [
+            "rgb",
+            243,
+            223,
+            208
+          ],
+          [
+            "rgb",
+            222,
+            215,
+            215
+          ]
         ],
-        "circle-radius": 2.5
+        "fill-extrusion-height": 7,
+        "fill-extrusion-opacity": 0.7
+      },
+      "source": "v",
+      "source-layer": "BuildingPart",
+      "type": "fill-extrusion"
+    },
+    {
+      "id": "NamedPlace",
+      "layout": {
+        "text-field": [
+          "get",
+          "GeographicalName"
+        ],
+        "text-font": [
+          "sans-serif"
+        ],
+        "text-size": [
+          "match",
+          [
+            "get",
+            "NamedPlaceTypeValue"
+          ],
+          [
+            "administrativeUnit"
+          ],
+          24,
+          [
+            "populatedPlace",
+            "protectedSite"
+          ],
+          20,
+          [
+            "hydrography"
+          ],
+          14,
+          [
+            "landcover",
+            "landform"
+          ],
+          12,
+          [
+            "building",
+            "transportNetwork"
+          ],
+          10,
+          [
+            "other"
+          ],
+          8,
+          16
+        ]
+      },
+      "paint": {
+        "text-color": [
+          "match",
+          [
+            "get",
+            "NamedPlaceTypeValue"
+          ],
+          "hydrography",
+          [
+            "rgb",
+            0,
+            122,
+            255
+          ],
+          [
+            "rgb",
+            0,
+            0,
+            0
+          ]
+        ],
+        "text-halo-color": [
+          "rgb",
+          255,
+          255,
+          255
+        ],
+        "text-halo-width": 2
       },
       "source": "v",
       "source-layer": "NamedPlace",
-      "type": "circle"
+      "type": "symbol"
     }
   ],
   "site_root": "https://optgeo.github.io/durana-dev",
@@ -279,7 +737,7 @@
     },
     "v": {
       "attribution": "TODO",
-      "maxzoom": 15,
+      "maxzoom": 16,
       "tiles": [
         "https://optgeo.github.io/durana-dev/zxy/{z}/{x}/{y}.pbf"
       ],
