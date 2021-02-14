@@ -529,6 +529,43 @@
       "type": "line"
     },
     {
+      "id": "RoadLink-Line",
+      "paint": {
+        "line-color": [
+          "step",
+          [
+            "zoom"
+          ],
+          [
+            "rgb",
+            189,
+            189,
+            189
+          ],
+          15,
+          [
+            "rgba",
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "line-width": [
+          "step",
+          [
+            "zoom"
+          ],
+          1,
+          14,
+          2
+        ]
+      },
+      "source": "v",
+      "source-layer": "RoadLink",
+      "type": "line"
+    },
+    {
       "id": "Building",
       "paint": {
         "fill-extrusion-color": [
@@ -643,6 +680,40 @@
       "source": "v",
       "source-layer": "BuildingPart",
       "type": "fill-extrusion"
+    },
+    {
+      "id": "RoadLink-Symbol",
+      "layout": {
+        "symbol-placement": "line",
+        "text-field": [
+          "step",
+          [
+            "zoom"
+          ],
+          "",
+          16.5,
+          [
+            "get",
+            "GeographicalName"
+          ]
+        ],
+        "text-font": [
+          "sans-serif"
+        ],
+        "text-size": 9
+      },
+      "paint": {
+        "text-halo-color": [
+          "rgb",
+          255,
+          255,
+          255
+        ],
+        "text-halo-width": 2
+      },
+      "source": "v",
+      "source-layer": "RoadLink",
+      "type": "symbol"
     },
     {
       "id": "NamedPlace",
