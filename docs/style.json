@@ -566,6 +566,90 @@
       "type": "line"
     },
     {
+      "id": "AgriBuilding",
+      "paint": {
+        "fill-extrusion-color": [
+          "rgb",
+          255,
+          192,
+          0
+        ],
+        "fill-extrusion-height": 3,
+        "fill-extrusion-opacity": 0.7
+      },
+      "source": "v",
+      "source-layer": "AgriBuilding",
+      "type": "fill-extrusion"
+    },
+    {
+      "id": "ProductionBuilding",
+      "paint": {
+        "fill-extrusion-color": [
+          "rgb",
+          95,
+          89,
+          89
+        ],
+        "fill-extrusion-height": 3,
+        "fill-extrusion-opacity": 0.7
+      },
+      "source": "v",
+      "source-layer": "ProductionBuilding",
+      "type": "fill-extrusion"
+    },
+    {
+      "filter": [
+        "match",
+        [
+          "get",
+          "AsigAreaBuildingFeatureTypeValue"
+        ],
+        "pool",
+        true,
+        false
+      ],
+      "id": "AsigAreaBuildingFeature-Fill",
+      "paint": {
+        "fill-color": [
+          "rgb",
+          200,
+          235,
+          250
+        ]
+      },
+      "source": "v",
+      "source-layer": "AsigAreaBuildingFeature",
+      "type": "fill"
+    },
+    {
+      "filter": [
+        "match",
+        [
+          "get",
+          "AsigAreaBuildingFeatureTypeValue"
+        ],
+        "pool",
+        false,
+        true
+      ],
+      "id": "AsigAreaBuildingFeature-Line",
+      "paint": {
+        "line-color": [
+          "rgb",
+          89,
+          89,
+          89
+        ],
+        "line-dasharray": [
+          3,
+          1
+        ]
+      },
+      "source": "v",
+      "source-layer": "AsigAreaBuildingFeature",
+      "type": "line"
+    },
+    {
       "id": "Building",
       "paint": {
         "fill-extrusion-color": [
@@ -680,6 +764,59 @@
       "source": "v",
       "source-layer": "BuildingPart",
       "type": "fill-extrusion"
+    },
+    {
+      "id": "SpotElevation",
+      "layout": {
+        "text-field": [
+          "step",
+          [
+            "zoom"
+          ],
+          "",
+          17,
+          [
+            "to-string",
+            [
+              "round",
+              [
+                "get",
+                "HeightValue"
+              ]
+            ]
+          ],
+          19,
+          [
+            "to-string",
+            [
+              "get",
+              "HeightValue"
+            ]
+          ]
+        ],
+        "text-font": [
+          "sans-serif"
+        ],
+        "text-size": 9
+      },
+      "paint": {
+        "text-color": [
+          "rgb",
+          0,
+          0,
+          0
+        ],
+        "text-halo-color": [
+          "rgb",
+          255,
+          255,
+          255
+        ],
+        "text-halo-width": 2
+      },
+      "source": "v",
+      "source-layer": "SpotElevation",
+      "type": "symbol"
     },
     {
       "id": "RoadLink-Symbol",
